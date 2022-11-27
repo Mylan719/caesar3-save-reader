@@ -1,0 +1,97 @@
+﻿
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CeasarSaveReader.File
+{
+    public class SavegameState
+    {
+        public FilePiece scenario_campaign_mission;
+        public FilePiece file_version;
+        public FilePiece image_grid;
+        public FilePiece edge_grid;
+        public FilePiece building_grid;
+        public FilePiece terrain_grid;
+        public FilePiece aqueduct_grid;
+        public FilePiece figure_grid;
+        public FilePiece bitfields_grid;
+        public FilePiece sprite_grid;
+        public FilePiece random_grid;
+        public FilePiece desirability_grid;
+        public FilePiece elevation_grid;
+        public FilePiece building_damage_grid;
+        public FilePiece aqueduct_backup_grid;
+        public FilePiece sprite_backup_grid;
+        public FilePiece figures;
+        public FilePiece route_figures;
+        public FilePiece route_paths;
+        public FilePiece formations;
+        public FilePiece formation_totals;
+        public FilePiece city_data;
+        public FilePiece city_faction_unknown;
+        public FilePiece player_name;
+        public FilePiece city_faction;
+        public FilePiece buildings;
+        public FilePiece city_view_orientation;
+        public FilePiece game_time;
+        public FilePiece building_extra_highest_id_ever;
+        public FilePiece random_iv;
+        public FilePiece city_view_camera;
+        public FilePiece building_count_culture1;
+        public FilePiece city_graph_order;
+        public FilePiece emperor_change_time;
+        public FilePiece empire;
+        public FilePiece empire_cities;
+        public FilePiece building_count_industry;
+        public FilePiece trade_prices;
+        public FilePiece figure_names;
+        public FilePiece culture_coverage;
+        public FilePiece scenario;
+        public FilePiece max_game_year;
+        public FilePiece earthquake;
+        public FilePiece emperor_change_state;
+        public FilePiece messages;
+        public FilePiece message_extra;
+        public FilePiece population_messages;
+        public FilePiece message_counts;
+        public FilePiece message_delays;
+        public FilePiece building_list_burning_totals;
+        public FilePiece figure_sequence;
+        public FilePiece scenario_settings;
+        public FilePiece invasion_warnings;
+        public FilePiece scenario_is_custom;
+        public FilePiece city_sounds;
+        public FilePiece building_extra_highest_id;
+        public FilePiece figure_traders;
+        public FilePiece building_list_burning;
+        public FilePiece building_list_small;
+        public FilePiece building_list_large;
+        public FilePiece tutorial_part1;
+        public FilePiece building_count_military;
+        public FilePiece enemy_army_totals;
+        public FilePiece building_storages;
+        public FilePiece building_count_culture2;
+        public FilePiece building_count_support;
+        public FilePiece tutorial_part2;
+        public FilePiece gladiator_revolt;
+        public FilePiece trade_route_limit;
+        public FilePiece trade_route_traded;
+        public FilePiece building_barracks_tower_sentry;
+        public FilePiece building_extra_sequence;
+        public FilePiece routing_counters;
+        public FilePiece building_count_culture3;
+        public FilePiece enemy_armies;
+        public FilePiece city_entry_exit_xy;
+        public FilePiece last_invasion_id;
+        public FilePiece building_extra_corrupt_houses;
+        public FilePiece scenario_name;
+        public FilePiece bookmarks;
+        public FilePiece tutorial_part3;
+        public FilePiece city_entry_exit_grid_offset;
+        public FilePiece end_marker;
+        public FilePiece deliveries;
+    }
+}
