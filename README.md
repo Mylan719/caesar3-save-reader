@@ -2,6 +2,10 @@
 
 Library for loading Caesar3 and Augustus saves. My intention is to support people that would like to do something interesting with the saved games in Unity or Stride game engines. So I decided to port it to C#.
 
+Thanks to https://github.com/bvschaik for his tutorials and code base that enabled this project.
+
+Check out https://github.com/bvschaik/julius and https://github.com/Keriew/augustus
+
 ## Code
 
 Most of the code and data structures are migrated straight from augustus C based structs. I am slowly switching them to C# .Net 6 records introducing inheritance and generics where appropriate.
