@@ -1,5 +1,6 @@
 ﻿using CeasarSaveReader.Loader;
 using CeasarSaveReader.Map;
+using CeasarSaveReader.Resources;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace CeasarSaveReader.Figures.Model
         public byte flotsam_visible { get; set; }
         public short next_figure_id_on_same_tile { get; set; }
         public FigureType type { get; set; }
-        public byte resource_id { get; set; }
+        public ResourceType resource_id { get; set; }
         public byte use_cross_country { get; set; }
         public byte is_friendly { get; set; }
         public byte faction_id { get; set; } // 1 = city, 0 = enemy

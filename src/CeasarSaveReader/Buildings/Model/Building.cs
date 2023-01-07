@@ -1,5 +1,6 @@
 ﻿using CeasarSaveReader.Loader;
 using CeasarSaveReader.Map;
+using CeasarSaveReader.Resources;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,7 +33,7 @@ namespace CeasarSaveReader.Buildings.Model
         public short figure_id { get; set; }
         public short figure_id2 { get; set; } // labor seeker or market supplier
         public short immigrant_figure_id { get; set; }
-        public short figure_id4 { get; set; } // tower ballista, burning ruin prefect, doctor healing plague
+        public short figure_inside_building { get; set; } // tower ballista, burning ruin prefect, doctor healing plague
         public byte figure_spawn_delay { get; set; }
         public byte days_since_offering { get; set; }
         public byte figure_roam_direction { get; set; }
@@ -44,7 +45,7 @@ namespace CeasarSaveReader.Buildings.Model
         public byte has_well_access { get; set; }
         public short num_workers { get; set; }
         public byte labor_category { get; set; }
-        public byte output_resource_id { get; set; }
+        public ResourceType output_resource_id { get; set; }
         public bool has_road_access { get; set; }
         public byte house_criminal_active { get; set; }
         public short damage_risk { get; set; }
@@ -84,7 +85,7 @@ namespace CeasarSaveReader.Buildings.Model
 
         public override string ToString()
         {
-            return $"t:{type}, s:{size}, {base.ToString()}";
+            return $"t:{type}, s:{size}, {base.ToString()} ({data?.ToString() ?? ""}, Loads: {loads_stored})";
         }
     }
 }

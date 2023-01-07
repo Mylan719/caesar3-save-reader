@@ -48,6 +48,11 @@ namespace CeasarSaveReader.Map
             return new(left.X - right.X, left.Y - right.Y);
         }
 
+        public static GridOffset operator +(GridOffset left, int right)
+        {
+            return new(left.X + right, left.Y + right);
+        }
+
         public static bool operator !=(GridOffset left, GridOffset right)
         {
             return left.Value != right.Value;

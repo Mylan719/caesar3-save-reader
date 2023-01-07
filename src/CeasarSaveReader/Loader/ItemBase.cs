@@ -14,5 +14,12 @@ namespace CeasarSaveReader.Loader
         {
             return $"{state} ({Coordinates})";
         }
+
+        public virtual IReadOnlyList<TextPart> ToTextParts() => new List<TextPart>() { new TextPart(ToString(),0, true)};
+    }
+
+    public record TextPart(string Text, int Offset = 0, bool IsBold = false)
+    {
+        public override string ToString() => $"- {string.Join("", Enumerable.Range(0, Offset).Select(i => "\t"))}{Text}";
     }
 }

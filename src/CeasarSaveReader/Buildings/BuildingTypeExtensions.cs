@@ -1,18 +1,17 @@
-﻿namespace CeasarSaveReader.Buildings
+﻿using CeasarSaveReader.Resources;
+
+namespace CeasarSaveReader.Buildings
 {
-    public static class BuildingExtensions
+    public static class BuildingTypeExtensions
     {
-        public static bool is_industry_type(this BuildingType type, int output_resource_id)
+        public static bool is_industry_type(this BuildingType type, ResourceType output_resource_id)
         {
             return output_resource_id > 0 ||
                 type == BuildingType.NATIVE_CROPS ||
                 type == BuildingType.SHIPYARD ||
                 type == BuildingType.WHARF;
         }
-    }
 
-    public static class BuildingTypeExtensions
-    {
         public static bool IsWorkshop(this BuildingType type)
         {
             return type >= BuildingType.WINE_WORKSHOP && type <= BuildingType.POTTERY_WORKSHOP;

@@ -1,5 +1,6 @@
 ﻿using CeasarSaveReader.Figures.Model;
 using CeasarSaveReader.Loader;
+using CeasarSaveReader.Resources;
 
 namespace CeasarSaveReader.Figures
 {
@@ -16,7 +17,7 @@ namespace CeasarSaveReader.Figures
             f.cart_image_id = (uint)reader.ReadInt16();
             f.next_figure_id_on_same_tile = reader.ReadInt16();
             f.type = (FigureType)reader.ReadByte();
-            f.resource_id = reader.ReadByte();
+            f.resource_id = (ResourceType)reader.ReadByte();
             f.use_cross_country = reader.ReadByte();
             f.is_friendly = reader.ReadByte();
             f.state = (FigureState)reader.ReadByte();

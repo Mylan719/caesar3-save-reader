@@ -39,7 +39,7 @@ namespace CeasarSaveReader.Buildings
             b.figure_id = reader.ReadInt16();
             b.figure_id2 = reader.ReadInt16();
             b.immigrant_figure_id = reader.ReadInt16();
-            b.figure_id4 = reader.ReadInt16();
+            b.figure_inside_building = reader.ReadInt16();
             b.figure_spawn_delay = reader.ReadByte();
             b.days_since_offering = reader.ReadByte();
             b.figure_roam_direction = reader.ReadByte();
@@ -53,7 +53,7 @@ namespace CeasarSaveReader.Buildings
             b.has_well_access = reader.ReadByte();
             b.num_workers = reader.ReadInt16();
             b.labor_category = reader.ReadByte();
-            b.output_resource_id = reader.ReadByte();
+            b.output_resource_id = (ResourceType)reader.ReadByte();
             b.has_road_access = reader.ReadByte() > 0;
             b.house_criminal_active = reader.ReadByte();
             b.damage_risk = reader.ReadInt16();
@@ -79,7 +79,7 @@ namespace CeasarSaveReader.Buildings
             // Wharves produce meat
             if (b.type == BuildingType.WHARF)
             {
-                b.output_resource_id = (byte)ResourceType.RESOURCE_MEAT;
+                b.output_resource_id = ResourceType.MEAT;
             }
 
             if (building_buf_size < (int)BuildingState.STRIKES)
@@ -184,7 +184,7 @@ namespace CeasarSaveReader.Buildings
             return b;
         }
 
-        private static BuildingData read_type_data(BinaryReader reader, BuildingType buildingType, int output_resource_id, int version)
+        private static BuildingData read_type_data(BinaryReader reader, BuildingType buildingType, ResourceType output_resource_id, int version)
         {
             // This function should ALWAYS read 42 bytes.
             // The only exception is for Caravanserai on old savegame versions, which due to an oversight only read 41 bytes.
@@ -229,7 +229,7 @@ namespace CeasarSaveReader.Buildings
             else if (buildingType == BuildingType.CARAVANSERAI)
             {
                 var monument = new Monument();
-                for (int i = 0; i < (int)ResourceType.RESOURCE_MAX; i++)
+                for (int i = 0; i < (int)ResourceType.MAX; i++)
                 {
                     monument.resources_needed[i] = reader.ReadInt16();
                 }
@@ -249,7 +249,7 @@ namespace CeasarSaveReader.Buildings
             else if (buildingType == BuildingType.LARGE_TEMPLE_CERES || buildingType == BuildingType.LARGE_TEMPLE_VENUS)
             {
                 var monument = new Monument();
-                for (int i = 0; i < (int)ResourceType.RESOURCE_MAX; i++)
+                for (int i = 0; i < (int)ResourceType.MAX; i++)
                 {
                     monument.resources_needed[i] = reader.ReadInt16();
                 }
@@ -288,7 +288,7 @@ namespace CeasarSaveReader.Buildings
                 var granary = new Granary();
 
                 reader.ReadBytes(2);
-                for (int i = 0; i < (int)ResourceType.RESOURCE_MAX; i++)
+                for (int i = 0; i < (int)ResourceType.MAX; i++)
                 {
                     granary.resource_stored[i] = reader.ReadInt16();
                 }
@@ -299,7 +299,7 @@ namespace CeasarSaveReader.Buildings
             {
                 var monument = new Monument();
 
-                for (int i = 0; i < (int)ResourceType.RESOURCE_MAX; i++)
+                for (int i = 0; i < (int)ResourceType.MAX; i++)
                 {
                     monument.resources_needed[i] = reader.ReadInt16();
                 }
@@ -345,7 +345,7 @@ namespace CeasarSaveReader.Buildings
                 reader.ReadBytes(14);
                 industry.blessing_days_left = reader.ReadByte();
                 industry.orientation = reader.ReadByte();
-                industry.has_raw_materials = reader.ReadByte();
+                industry.has_raw_materials = reader.ReadByte() > 0;
                 reader.ReadBytes(1);
                 industry.curse_days_left = reader.ReadByte();
                 if ((buildingType >= BuildingType.WHEAT_FARM && buildingType <= BuildingType.POTTERY_WORKSHOP) || buildingType == BuildingType.WHARF)

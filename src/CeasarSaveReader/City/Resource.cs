@@ -4,20 +4,20 @@ namespace CeasarSaveReader.City
 {
     public class Resource
     {
-        public short[] space_in_warehouses = new short[(int)ResourceType.RESOURCE_MAX];
-        public short[] stored_in_warehouses = new short[(int)ResourceType.RESOURCE_MAX];
+        public short[] space_in_warehouses = new short[(int)ResourceType.MAX];
+        public short[] stored_in_warehouses = new short[(int)ResourceType.MAX];
         public int[] space_in_workshops = new int[6];
         public int[] stored_in_workshops = new int[6];
-        public short[] trade_status = new short[(int)ResourceType.RESOURCE_MAX];
-        public short[] export_status_before_stockpiling = new short[(int)ResourceType.RESOURCE_MAX];
-        public short[] import_over = new short[(int)ResourceType.RESOURCE_MAX];
-        public short[] export_over = new short[(int)ResourceType.RESOURCE_MAX];
-        public int[] stockpiled = new int[(int)ResourceType.RESOURCE_MAX];
-        public short[] mothballed = new short[(int)ResourceType.RESOURCE_MAX];
+        public short[] trade_status = new short[(int)ResourceType.MAX];
+        public short[] export_status_before_stockpiling = new short[(int)ResourceType.MAX];
+        public short[] import_over = new short[(int)ResourceType.MAX];
+        public short[] export_over = new short[(int)ResourceType.MAX];
+        public int[] stockpiled = new int[(int)ResourceType.MAX];
+        public short[] mothballed = new short[(int)ResourceType.MAX];
         public int wine_types_available;
         public int food_types_available;
         public int food_types_eaten;
-        public int[] granary_food_stored = new int[(int)ResourceType.RESOURCE_MAX_FOOD];
+        public int[] granary_food_stored = new int[(int)ResourceType.MAX_FOOD];
         public int granary_total_stored;
         public int food_supply_months;
         public int food_needed_per_month;

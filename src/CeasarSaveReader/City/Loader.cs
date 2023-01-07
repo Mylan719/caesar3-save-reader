@@ -90,7 +90,7 @@ namespace CeasarSaveReader.City
             city_data.trade.months_since_last_sea_trade_problem = reader.ReadUInt16();
             if (has_separate_import_limits)
             {
-                for (int i = 0; i < (int)ResourceType.RESOURCE_MAX; i++)
+                for (int i = 0; i < (int)ResourceType.MAX; i++)
                 {
                     city_data.resource.import_over[i] = reader.ReadInt16();
                 }
@@ -114,28 +114,28 @@ namespace CeasarSaveReader.City
             city_data.building.senate_building_id = reader.ReadInt32();
             city_data.trade.land_policy = reader.ReadByte();
             city_data.trade.sea_policy = reader.ReadByte();
-            for (int i = 0; i < (int)ResourceType.RESOURCE_MAX; i++)
+            for (int i = 0; i < (int)ResourceType.MAX; i++)
             {
                 city_data.resource.space_in_warehouses[i] = reader.ReadInt16();
             }
-            for (int i = 0; i < (int)ResourceType.RESOURCE_MAX; i++)
+            for (int i = 0; i < (int)ResourceType.MAX; i++)
             {
                 city_data.resource.stored_in_warehouses[i] = reader.ReadInt16();
             }
-            for (int i = 0; i < (int)ResourceType.RESOURCE_MAX; i++)
+            for (int i = 0; i < (int)ResourceType.MAX; i++)
             {
                 city_data.resource.trade_status[i] = reader.ReadInt16();
             }
-            for (int i = 0; i < (int)ResourceType.RESOURCE_MAX; i++)
+            for (int i = 0; i < (int)ResourceType.MAX; i++)
             {
                 city_data.resource.export_over[i] = reader.ReadInt16();
             }
-            for (int i = 0; i < (int)ResourceType.RESOURCE_MAX; i++)
+            for (int i = 0; i < (int)ResourceType.MAX; i++)
             {
                 city_data.resource.mothballed[i] = reader.ReadInt16();
             }
             city_data.unused.unused_28ca = reader.ReadInt16();
-            for (int i = 0; i < (int)ResourceType.RESOURCE_MAX_FOOD; i++)
+            for (int i = 0; i < (int)ResourceType.MAX_FOOD; i++)
             {
                 city_data.resource.granary_food_stored[i] = reader.ReadInt32();
             }
@@ -150,7 +150,7 @@ namespace CeasarSaveReader.City
             city_data.resource.granary_total_stored = reader.ReadInt32();
             city_data.resource.food_types_available = reader.ReadInt32();
             city_data.resource.food_types_eaten = reader.ReadInt32();
-            for (int i = 0; i < (int)ResourceType.RESOURCE_MAX; i++)
+            for (int i = 0; i < (int)ResourceType.MAX; i++)
             {
                 city_data.resource.export_status_before_stockpiling[i] = reader.ReadInt16();
             }
@@ -161,7 +161,7 @@ namespace CeasarSaveReader.City
             city_data.sentiment.crime_cooldown = reader.ReadSByte();
             city_data.building.caravanserai_building_id = reader.ReadInt32();
             city_data.caravanserai.total_food = reader.ReadInt32();
-            for (int i = 0; i < (int)ResourceType.RESOURCE_MAX; i++)
+            for (int i = 0; i < (int)ResourceType.MAX; i++)
             {
                 city_data.resource.stockpiled[i] = reader.ReadInt32();
             }
@@ -563,7 +563,7 @@ namespace CeasarSaveReader.City
             }
             if (!has_separate_import_limits)
             {
-                for (int i = (int)ResourceType.RESOURCE_MIN; i < (int)ResourceType.RESOURCE_MAX; i++)
+                for (int i = (int)ResourceType.MIN; i < (int)ResourceType.MAX; i++)
                 {
                     if (city_data.resource.trade_status[i] == (int)TradeStatus.Import)
                     {
