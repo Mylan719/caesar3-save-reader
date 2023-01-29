@@ -61,5 +61,13 @@ namespace CeasarSaveReader.Buildings
                 type == BuildingType.LARGE_TEMPLE_VENUS ||
                 type == BuildingType.TAVERN);
         }
+
+        public static bool IsResourceDestination(this BuildingType type)
+        {
+            return type.IsWorkshop() ||
+                type == BuildingType.GRANARY ||
+                type == BuildingType.WAREHOUSE ||
+                type == BuildingType.DOCK;
+        }
     }
 }

@@ -29,7 +29,7 @@ namespace CeasarSaveReader.Buildings.Model
         public short distance_from_entry { get; set; }
         public short house_highest_population { get; set; }
         public short house_unreachable_ticks { get; set; }
-        public GridOffset road_access { get; set; }
+        public GridOffset RoadAccess { get; set; }
         public short figure_id { get; set; }
         public short figure_id2 { get; set; } // labor seeker or market supplier
         public short immigrant_figure_id { get; set; }

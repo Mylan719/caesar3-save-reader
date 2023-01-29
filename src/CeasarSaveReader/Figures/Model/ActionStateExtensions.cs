@@ -16,9 +16,25 @@
             || actionState == ActionState.PREFECT_RETURNING
             || actionState == ActionState.TAX_COLLECTOR_RETURNING;
 
+        public static bool IsReturning(this ActionState actionState)
+            => actionState.IsRoamerReturning()
+            || actionState == ActionState.CARTPUSHER_RETURNING
+            || actionState == ActionState.DOCKER_EXPORT_RETURNING
+            || actionState == ActionState.DOCKER_IMPORT_RETURNING
+
+            || actionState == ActionState.WAREHOUSEMAN_RETURNING_EMPTY
+            || actionState == ActionState.WAREHOUSEMAN_RETURNING_WITH_FOOD
+            || actionState == ActionState.WAREHOUSEMAN_RETURNING_WITH_RESOURCE;
+
         public static bool IsAtDeliveryDestination(this ActionState actionState)
             => actionState == ActionState.CARTPUSHER_AT_WAREHOUSE ||
                actionState == ActionState.CARTPUSHER_AT_GRANARY ||
-               actionState == ActionState.CARTPUSHER_AT_WORKSHOP;
+               actionState == ActionState.CARTPUSHER_AT_WORKSHOP ||
+               actionState == ActionState.DOCKER_EXPORT_AT_STORAGE;
+        public static bool IsDeliveringToDestination(this ActionState actionState)
+            => actionState == ActionState.CARTPUSHER_DELIVERING_TO_WAREHOUSE ||
+               actionState == ActionState.CARTPUSHER_DELIVERING_TO_GRANARY ||
+               actionState == ActionState.CARTPUSHER_DELIVERING_TO_WORKSHOP ||
+               actionState == ActionState.DOCKER_EXPORT_GOING_TO_STORAGE;
     }
 }

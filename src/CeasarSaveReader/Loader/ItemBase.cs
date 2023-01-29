@@ -5,7 +5,7 @@ namespace CeasarSaveReader.Loader
     public class ItemBase<TState>
         where TState : Enum
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         public TState state { get; set; }
         public GridOffset Coordinates { get; set; }
         public GridOffset GlobalCoordinates { get; set; }

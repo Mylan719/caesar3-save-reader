@@ -17,7 +17,7 @@ namespace CeasarSaveReader.Figures
             f.cart_image_id = (uint)reader.ReadInt16();
             f.next_figure_id_on_same_tile = reader.ReadInt16();
             f.type = (FigureType)reader.ReadByte();
-            f.resource_id = (ResourceType)reader.ReadByte();
+            f.ResourceId = (ResourceType)reader.ReadByte();
             f.use_cross_country = reader.ReadByte();
             f.is_friendly = reader.ReadByte();
             f.state = (FigureState)reader.ReadByte();
@@ -63,7 +63,7 @@ namespace CeasarSaveReader.Figures
             f.speed_multiplier = reader.ReadByte();
             f.building_id = reader.ReadInt16();
             f.immigrant_building_id = reader.ReadInt16();
-            f.destination_building_id = reader.ReadInt16();
+            f.DestinationBuildingId = reader.ReadInt16();
             f.formation_id = reader.ReadInt16();
             f.index_in_formation = reader.ReadByte();
             f.formation_at_rest = reader.ReadByte();

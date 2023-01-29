@@ -35,7 +35,7 @@ namespace CeasarSaveReader.Buildings
             b.distance_from_entry = reader.ReadInt16();
             b.house_highest_population = reader.ReadInt16();
             b.house_unreachable_ticks = reader.ReadInt16();
-            b.road_access = new GridOffset(reader.ReadByte(), reader.ReadByte());
+            b.RoadAccess = new GridOffset(reader.ReadByte(), reader.ReadByte());
             b.figure_id = reader.ReadInt16();
             b.figure_id2 = reader.ReadInt16();
             b.immigrant_figure_id = reader.ReadInt16();

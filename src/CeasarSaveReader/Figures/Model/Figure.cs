@@ -20,7 +20,7 @@ namespace CeasarSaveReader.Figures.Model
         public byte flotsam_visible { get; set; }
         public short next_figure_id_on_same_tile { get; set; }
         public FigureType type { get; set; }
-        public ResourceType resource_id { get; set; }
+        public ResourceType ResourceId { get; set; }
         public byte use_cross_country { get; set; }
         public byte is_friendly { get; set; }
         public byte faction_id { get; set; } // 1 = city, 0 = enemy
@@ -64,7 +64,7 @@ namespace CeasarSaveReader.Figures.Model
         public byte speed_multiplier { get; set; }
         public short building_id { get; set; }
         public short immigrant_building_id { get; set; }
-        public short destination_building_id { get; set; }
+        public short DestinationBuildingId { get; set; }
         public short formation_id { get; set; }
         public byte index_in_formation { get; set; }
         public byte formation_at_rest { get; set; }

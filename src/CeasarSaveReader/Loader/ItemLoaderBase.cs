@@ -28,7 +28,7 @@ namespace CeasarSaveReader.Loader
             for (int i = 0; i < buf_size / figure_buf_size; i++)
             {
                 var item = LoadItem(reader, figure_buf_size, saveVersion);
-                item.id = items.Count;
+                item.Id = items.Count;
 
                 items.Add(item);
                 if (Convert.ToByte(item.state) > 0)
