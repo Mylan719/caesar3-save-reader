@@ -80,7 +80,7 @@ namespace CeasarSaveReader.Figures
             f.trader_amount_bought = reader.ReadByte();
             f.name = reader.ReadInt16();
             f.TerrainUsage = (TerrainUsage)reader.ReadByte();
-            f.loads_sold_or_carrying = reader.ReadByte();
+            f.LoadsSoldOrCarrying = reader.ReadByte();
             f.Floating = (FloatingType)reader.ReadByte();
             f.height_adjusted_ticks = reader.ReadByte();
             f.current_height = reader.ReadByte();

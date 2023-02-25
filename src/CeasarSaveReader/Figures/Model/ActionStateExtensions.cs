@@ -1,4 +1,6 @@
-﻿namespace CeasarSaveReader.Figures.Model
+﻿using CeasarSaveReader.City;
+
+namespace CeasarSaveReader.Figures.Model
 {
     public static class ActionStateExtensions
     {
@@ -30,11 +32,16 @@
             => actionState == ActionState.CARTPUSHER_AT_WAREHOUSE ||
                actionState == ActionState.CARTPUSHER_AT_GRANARY ||
                actionState == ActionState.CARTPUSHER_AT_WORKSHOP ||
-               actionState == ActionState.DOCKER_EXPORT_AT_STORAGE;
+               actionState == ActionState.DOCKER_EXPORT_AT_STORAGE ||
+               actionState == ActionState.WAREHOUSEMAN_AT_DELIVERY_BUILDING ||
+               actionState == ActionState.WAREHOUSEMAN_AT_GRANARY ||
+               actionState == ActionState.WAREHOUSEMAN_AT_WAREHOUSE;
+
         public static bool IsDeliveringToDestination(this ActionState actionState)
             => actionState == ActionState.CARTPUSHER_DELIVERING_TO_WAREHOUSE ||
                actionState == ActionState.CARTPUSHER_DELIVERING_TO_GRANARY ||
                actionState == ActionState.CARTPUSHER_DELIVERING_TO_WORKSHOP ||
-               actionState == ActionState.DOCKER_EXPORT_GOING_TO_STORAGE;
+               actionState == ActionState.DOCKER_EXPORT_GOING_TO_STORAGE ||
+               actionState == ActionState.WAREHOUSEMAN_DELIVERING_RESOURCE;
     }
 }

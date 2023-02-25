@@ -81,7 +81,7 @@ namespace CeasarSaveReader.Figures.Model
         public byte trader_amount_bought { get; set; }
         public short name { get; set; }
         public TerrainUsage TerrainUsage { get; set; }
-        public byte loads_sold_or_carrying { get; set; }
+        public byte LoadsSoldOrCarrying { get; set; }
         public FloatingType Floating { get; set; }
         public byte height_adjusted_ticks { get; set; }
         public byte current_height { get; set; }
@@ -105,6 +105,6 @@ namespace CeasarSaveReader.Figures.Model
         public short opponent_id { get; set; }
         public Tourist tourist { get; set; } = new Tourist();
 
-        public override string ToString() => $"t:{type}, a:{ActionState}, {base.ToString()}";
+        public override string ToString() => $"t:{type}, a:{ActionState}, dest: {Destination} {base.ToString()}";
     }
 }
