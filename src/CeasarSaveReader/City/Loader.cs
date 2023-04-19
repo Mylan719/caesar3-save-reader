@@ -102,12 +102,19 @@ namespace CeasarSaveReader.City
                     city_data.unused.unknown_27f4[i] = reader.ReadInt16();
                 }
             }
-            city_data.map.entry_point.x = reader.ReadByte();
-            city_data.map.entry_point.y = reader.ReadByte();
-            city_data.map.entry_point.grid_offset = reader.ReadInt16();
-            city_data.map.exit_point.x = reader.ReadByte();
-            city_data.map.exit_point.y = reader.ReadByte();
-            city_data.map.exit_point.grid_offset = reader.ReadInt16();
+
+            var mapEntryPoint = new MapTile(
+                new GridOffset(
+                    reader.ReadByte(),
+                    reader.ReadByte()),
+                new GridOffset(reader.ReadInt16()));
+
+            var mapExitPoint = new MapTile(
+                 new GridOffset(
+                     reader.ReadByte(),
+                     reader.ReadByte()),
+                 new GridOffset(reader.ReadInt16()));
+
             city_data.building.senate_x = reader.ReadByte();
             city_data.building.senate_y = reader.ReadByte();
             city_data.building.senate_grid_offset = reader.ReadInt16();
@@ -540,11 +547,14 @@ namespace CeasarSaveReader.City
             city_data.finance.estimated_wages = reader.ReadInt32();
             city_data.resource.wine_types_available = reader.ReadInt32();
             city_data.ratings.prosperity_max = reader.ReadInt32();
-            for (int i = 0; i < 10; i++)
-            {
-                city_data.map.largest_road_networks[i].id = reader.ReadInt32();
-                city_data.map.largest_road_networks[i].size = reader.ReadInt32();
-            }
+
+            var mapLargestRoadNetworks = Enumerable.Range(0, 10)
+                .Select(i => new LargestRoadNetwork(reader.ReadInt32(), reader.ReadInt32()))
+                .ToArray();
+
+            city_data.Map = new Map(mapEntryPoint, mapExitPoint, mapLargestRoadNetworks);
+
+
             city_data.houses.missing.second_wine = reader.ReadInt32();
             city_data.religion.neptune_sank_ships = reader.ReadInt32();
             city_data.entertainment.hippodrome_has_race = reader.ReadInt32();

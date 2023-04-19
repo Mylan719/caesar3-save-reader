@@ -1,9 +1,4 @@
 ﻿namespace CeasarSaveReader.Map
 {
-    public class MapTile
-    {
-        public int x;
-        public int y;
-        public int grid_offset;
-    }
+    public record MapTile(GridOffset Coordinates, GridOffset GlobalCoordinates);
 }

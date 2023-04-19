@@ -50,6 +50,7 @@ namespace CeasarSaveReader.Terrain
                 (terrain & TerrainType.RUBBLE) == 0 &&
                 (terrain & TerrainType.WALL) == 0 &&
                 (terrain & TerrainType.SCRUB) == 0 &&
+                (terrain & TerrainType.GARDEN) == 0 &&
                 (terrain & TerrainType.GATEHOUSE) == 0;
         }
     }

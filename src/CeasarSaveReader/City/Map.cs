@@ -5,20 +5,21 @@ using CeasarSaveReader.Map;
 
 namespace CeasarSaveReader.City
 {
-    public class Map
+    public record Map
     {
-        public MapTile entry_point = new MapTile();
-        public MapTile exit_point = new MapTile();
-        public MapTile entry_flag = new MapTile();
-        public MapTile exit_flag = new MapTile();
-        public LargestRoadNetworks[] largest_road_networks = new LargestRoadNetworks[10]; //10
+        public MapTile EntryPoint { get; }
+        public MapTile ExitPoint { get; }
+        //TODO: look into why the flags are unused
+        public LargestRoadNetwork[] LargestRoadNetworks { get; }
 
-        public Map()
+        public Map(
+            MapTile EntryPoint,
+            MapTile ExitPoint,
+            LargestRoadNetwork[] LargestRoadNetworks)
         {
-            for (int i = 0; i < 10; i++)
-            {
-                largest_road_networks[i] = new LargestRoadNetworks();
-            }
+            this.EntryPoint = EntryPoint;
+            this.ExitPoint = ExitPoint;
+            this.LargestRoadNetworks = LargestRoadNetworks;
         }
     }
 }

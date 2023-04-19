@@ -3,9 +3,5 @@
 
 namespace CeasarSaveReader.City
 {
-    public class LargestRoadNetworks
-    {
-        public int id;
-        public int size;
-    }
+    public record LargestRoadNetwork (int Id, int Size);
 }
