@@ -15,7 +15,7 @@ namespace CeasarSaveReader.Buildings.Model
         public byte faction_id { get; set; }
         public byte unknown_value { get; set; }
         public byte size { get; set; }
-        public byte house_is_merged { get; set; }
+        public bool HouseIsMerged { get; set; }
         public byte house_size { get; set; }
         public BuildingType type { get; set; }
         public Subtype subtype { get; set; } = new Subtype();

@@ -19,7 +19,7 @@ namespace CeasarSaveReader.Buildings
             b.faction_id = reader.ReadByte();
             b.unknown_value = reader.ReadByte();
             b.size = reader.ReadByte();
-            b.house_is_merged = reader.ReadByte();
+            b.HouseIsMerged = reader.ReadByte() > 0;
             b.house_size = reader.ReadByte();
             b.Coordinates = new GridOffset(reader.ReadByte(), reader.ReadByte());
             b.GlobalCoordinates = new GridOffset(reader.ReadInt16());
