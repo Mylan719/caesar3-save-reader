@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using CeasarSaveReader.Terrain;
+using System.Reflection;
 
 namespace CeasarSaveReader.Map
 {
@@ -13,6 +14,9 @@ namespace CeasarSaveReader.Map
             return new GridPattern<bool>(tiles);
         }
     }
+
+    public record TileOrientation<TTile>(TTile Tile, float Orientation)
+            where TTile : struct;
 
     public record GridPattern<TTile>
         where TTile : struct
@@ -68,5 +72,24 @@ namespace CeasarSaveReader.Map
         /// </summary>
         /// <returns>Array of neighburs in clockwise order.</returns>
         public TTile[] GetAllNeighburs() => new[] { UpperLeft, Up, UpperRight, Right, LowerRight, Down, LowerLeft, Left };
+
+        public TileOrientation<TTile> [] GetBorderWallOrientation(Predicate<TTile> isSameType)
+        {
+            return GetDirectNeighburs()
+                    .Select((neighbur, i) => (orientation: i * 0.5f, isDifferent: !isSameType(neighbur), tile: neighbur))
+                    .Where(n => n.isDifferent)
+                    .Select(n => new TileOrientation<TTile>(n.tile, n.orientation))
+                    .ToArray();
+        }
+
+        public TileOrientation<TTile> [] GetBorderCornerOrientations(Predicate<TTile> isSameType)
+        {
+            var neighbours = GetAllNeighburs();
+            return neighbours
+                    .Select((neighbur, i) => (orientation: i / 2 * 0.5f, isDifferent: !isSameType(neighbur), tile: neighbur))
+                    .Where((neighbur, i) => neighbur.isDifferent && isSameType(neighbours[(8 + i - 1) % 8]) && isSameType(neighbours[(i + 1) % 8]))
+                    .Select(n => new TileOrientation<TTile>(n.tile, n.orientation))
+                    .ToArray();
+        }
     }
 }
