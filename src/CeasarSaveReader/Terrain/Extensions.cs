@@ -19,6 +19,11 @@ namespace CeasarSaveReader.Terrain
             return (terrain & TerrainType.ROAD) > 0;
         }
 
+        public static bool IsTreeOrScrub(this TerrainType terrain)
+        {
+            return (terrain & TerrainType.TREE) > 0 || (terrain & TerrainType.SCRUB) > 0;
+        }
+
         public static bool IsWater(this TerrainType terrain) => (terrain & TerrainType.WATER) != 0;
 
         public static bool IsNonNavigable(this TerrainType terrain)

@@ -21,6 +21,11 @@ namespace CeasarSaveReader.Buildings
             return type >= BuildingType.HOUSE_VACANT_LOT && type <= BuildingType.HOUSE_LUXURY_PALACE;
         }
 
+        public static bool IsWaterInfrastructure(this BuildingType type)
+        {
+            return type == BuildingType.WELL || type == BuildingType.RESERVOIR || type == BuildingType.FOUNTAIN;
+        }
+
         public static bool IsInsula(this BuildingType type)
         {
             return type >= BuildingType.HOUSE_SMALL_INSULA && type <= BuildingType.HOUSE_GRAND_INSULA;
