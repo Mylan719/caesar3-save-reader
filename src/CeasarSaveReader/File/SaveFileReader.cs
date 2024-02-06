@@ -55,7 +55,7 @@ namespace CeasarSaveReader.File
             gameSave.FigureGrid = LoadGrid(data.state.figure_grid.Data, gameSave.Scenario.map, r => (int)r.ReadUInt16());
             gameSave.BuildingsDamage = LoadGrid(data.state.building_damage_grid.Data, gameSave.Scenario.map, r => (int)r.ReadByte());
             gameSave.Elevation = LoadGrid(data.state.elevation_grid.Data, gameSave.Scenario.map, r => (int)r.ReadByte());
-            gameSave.Desirability = LoadGrid(data.state.desirability_grid.Data, gameSave.Scenario.map, r => (int)r.ReadByte());
+            gameSave.Desirability = LoadGrid(data.state.desirability_grid.Data, gameSave.Scenario.map, r => (int)r.ReadSByte());
             gameSave.EdgeGrid = LoadGrid(data.state.edge_grid.Data, gameSave.Scenario.map, r => (EdgeType)r.ReadByte());
             gameSave.BitField = LoadGrid(data.state.bitfields_grid.Data, gameSave.Scenario.map, r => (BitType)r.ReadByte());
             gameSave.Sprite = LoadGrid(data.state.sprite_grid.Data, gameSave.Scenario.map, r => (int)r.ReadByte());
