@@ -21,7 +21,11 @@ var typeGrid = save.BuildingGrid.ForGrid((coords, b) => save.Buildings[b].type =
 
 DebugWriter.PrintTerrain(save.Terrain);
 DebugWriter.PrintGrid(save.BuildingGrid);
-DebugWriter.PrintGrid(save.EdgeGrid.ForGrid((coords, e) => e.GetBuildingSize()));
 DebugWriter.PrintBuildings(typeGrid);
 DebugWriter.PrintGrid(save.Sprite);
+DebugWriter.PrintGrid(save.BitField.ForGrid((coords, e) => e.GetBuildingSize()));
+DebugWriter.PrintGrid(save.BitField.ForGrid((coords, e) => e.IsPlazaOrEarthquake()));
+DebugWriter.PrintGrid(save.EdgeGrid.ForGrid((coords, e) => e.IsNativeLand()));
+DebugWriter.PrintGrid(save.Desirability);
+
 

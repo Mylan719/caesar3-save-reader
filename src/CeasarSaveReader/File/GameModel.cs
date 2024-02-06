@@ -21,8 +21,9 @@ namespace CeasarSaveReader.File
         public Grid<int> BuildingGrid { get; set; }
         public Grid<int> FigureGrid { get; set; }
         public Grid<int> BuildingsDamage { get; set; }
-        public Grid<PropertyType> EdgeGrid { get; set; }
-        public Grid<int> BitField { get; set; }
+        public Grid<EdgeType> EdgeGrid { get; set; }
+        public Grid<BitType> BitField { get; set; }
+        public Grid<int> Desirability { get; set; }
         public CityData City { get; set; }
         public List<Buildings.Model.Building> Buildings { get; set; }
         public List<Figures.Model.Figure> Figures { get; set; }

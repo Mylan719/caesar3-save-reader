@@ -91,5 +91,13 @@ namespace CeasarSaveReader.Map
                     .Select(n => new TileOrientation<TTile>(n.tile, n.orientation))
                     .ToArray();
         }
+
+        public float GetOrientationToNeighbur(Predicate<TTile> neighburCondition)
+        {
+            var neighbur = GetDirectNeighburs().Select((n,index) => (n,index)).FirstOrDefault(t => neighburCondition(t.n));
+            var neighburIndex = neighbur.index;
+            return neighburIndex * 0.5f;
+        }
+
     }
 }
