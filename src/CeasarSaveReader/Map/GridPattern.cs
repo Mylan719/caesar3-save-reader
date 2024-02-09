@@ -13,6 +13,21 @@ namespace CeasarSaveReader.Map
 
             return new GridPattern<bool>(tiles);
         }
+
+        public static GridPattern<TResult> MergePatterns<TFirst, TSecond, TResult>(
+            this GridPattern<TFirst> first, 
+            GridPattern<TSecond> second, 
+            Func<TFirst, TSecond, TResult> mergeFunc)
+             where TResult : struct
+             where TFirst : struct
+             where TSecond : struct
+        {
+            var tiles = 
+                first.GetTiles()
+                .Zip(second.GetTiles(), mergeFunc)
+                .ToArray();
+            return new GridPattern<TResult>(tiles);
+        }
     }
 
     public record TileOrientation<TTile>(TTile Tile, float Orientation)
